@@ -3,17 +3,17 @@
 using namespace std;
 
 int main() {
+    int num;
+    char c;
     bool a = true;
 
     while (a) {
         cout << "Enter a number: ";
-        int num;
         cin >> num;
 
         cout << num * 2 << endl;
 
         cout << "Continue? (y/n) ";
-        char c;
         cin >> c;
 
         if (c ==  'y') {
