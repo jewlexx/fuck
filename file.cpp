@@ -8,7 +8,7 @@ int main() {
     int size, i = 0;
     ofstream file;
 
-    cout << "Enter your desired file size (kb): ";
+    cout << "Enter your desired file size (bytes): ";
     cin >> size;
 
     file.open("file");
