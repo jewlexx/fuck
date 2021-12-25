@@ -2,12 +2,15 @@
 
 using namespace std;
 
-int main() {
+// I was bored okay shush
+int main()
+{
     int num;
     char c;
     bool a = true;
 
-    while (a) {
+    while (a)
+    {
         cout << "Enter a number: ";
         cin >> num;
 
@@ -16,9 +19,12 @@ int main() {
         cout << "Continue? (y/n) ";
         cin >> c;
 
-        if (c ==  'y') {
+        if (c == 'y')
+        {
             a = true;
-        } else {
+        }
+        else
+        {
             a = false;
         }
     }
