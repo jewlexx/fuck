@@ -14,6 +14,7 @@ void nStr(int size, char *outStr)
     }
 };
 
+// TODO: Finish later :)
 // Takes an input size from the user and writes a text file with that size
 int main()
 {
