@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -35,8 +36,10 @@ int main()
 
     cout << "Made it here" << endl;
 
-    char rem[size % 1000000];
-    nStr(size % 1000000, rem);
+    int remI = remainder(size, (1024 * 1024));
+    char rem[remI];
+    cout << remI;
+    nStr(remI, rem);
 
     cout << rem;
 
@@ -46,8 +49,9 @@ int main()
 
     int i = 0;
 
-    while (i < size / 1000000)
+    while (i < size / (1024 * 1024))
     {
+        cout << "Doing hot girl shit";
         file << mb;
         i++;
     }
