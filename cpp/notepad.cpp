@@ -1,18 +1,25 @@
 #include <iostream>
-#include <fstream>
+#include <thread>
+
 using namespace std;
+
+void something(string to_print)
+{
+    while (true)
+    {
+        cout << to_print << endl;
+        this_thread::sleep_for(chrono::milliseconds(1000));
+    }
+}
 
 int main()
 {
-    ofstream fileWrite("test.txt");
-    ifstream fileRead("test.txt");
+    int i = 0;
+    while (i < 4)
+    {
 
-    string buffer;
-    fileRead >> buffer;
+        thread obj(something, "something");
 
-    cout << buffer;
-
-    fileWrite.close();
-    fileRead.close();
-    return 0;
+        obj.detach();
+    }
 }
