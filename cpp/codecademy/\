@@ -6,8 +6,6 @@ using std::cout;
 using std::string;
 using std::vector;
 
-const string houses[4] = {"Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"};
-
 static void invalid_input()
 {
     cout << "\nInvalid input. Try again!\n\n";
@@ -43,8 +41,8 @@ class Hat
 {
 
 public:
-    vector<int> housescore = {0, 0, 0, 0};
-    vector<int> answers = {0, 0, 0, 0};
+    int housescore[4] = {0, 0, 0, 0};
+    int answers[4] = {0, 0, 0, 0};
 
     Hat()
     {
@@ -68,6 +66,8 @@ public:
 
         int largest = 0;
         int index = 0;
+
+        constexpr string houses[4] = {"Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"};
 
         find_largest(housescore, largest, index);
 
