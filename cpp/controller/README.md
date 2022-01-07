@@ -1,3 +1,3 @@
 # Build Command
 
-g++ main.cpp -I`pwd`/include
+g++ main.cpp -lglfw -lGL -lm -lX11 -lpthread -lXi -lXrandr -ldl
