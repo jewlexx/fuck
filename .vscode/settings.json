@@ -1,0 +1,20 @@
+{
+  "files.associations": {
+    "string": "c",
+    "string.h": "c",
+    "*.tcc": "c",
+    "chrono": "c",
+    "future": "c",
+    "limits": "c",
+    "tuple": "c",
+    "type_traits": "c",
+    "ctime": "c",
+    "iomanip": "c",
+    "numeric": "c",
+    "ratio": "c",
+    "streambuf": "c",
+    "utility": "c",
+    "*.inc": "c",
+    "algorithm": "c"
+  }
+}
