@@ -35,7 +35,13 @@ fn main() {
         fs::File::open(&path).unwrap()
     };
 
-    let vec = vec![0; size];
+    for s in 0..((&size / 1000) as usize) {
+        let vec = vec![0; s];
+        file.write_all(vec.as_slice()).unwrap();
+    }
 
-    file.write_all(vec.as_slice()).unwrap();
+    for s in 0..((&size % 1000) as usize) {
+        let vec = vec![0; s];
+        file.write_all(vec.as_slice()).unwrap();
+    }
 }
