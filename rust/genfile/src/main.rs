@@ -1,8 +1,4 @@
-use std::{
-    env,
-    fs::{self},
-    io::Write,
-};
+use std::{env, fs, io::Write};
 
 fn main() {
     let size = env::args()
