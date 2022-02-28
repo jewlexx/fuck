@@ -40,11 +40,9 @@ fn main() {
     let bar = ProgressBar::new(size as u64);
     bar.set_style(
         ProgressStyle::default_bar()
-            .template(
-                "{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/green}] {bytes}/{total_bytes}",
-            )
-            .progress_chars("#>-"),
+            .template("{spinner} [{elapsed_precise}] [{bar:40.cyan/green}] {bytes}/{total_bytes}"),
     );
+    bar.enable_steady_tick(50);
 
     for _ in 0..((size / (1024 * 1024)) as usize) {
         let vec = vec![0; 1024 * 1024];
