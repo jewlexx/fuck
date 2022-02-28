@@ -38,15 +38,13 @@ fn main() {
 
     let bar = ProgressBar::new(size as u64);
 
-    for s in 0..((&size / 1000) as usize) {
-        let vec = vec![0; s];
+    for _ in 0..((size / (1024 * 1024)) as usize) {
+        let vec = vec![0; 1024 * 1024];
         file.write_all(vec.as_slice()).unwrap();
-        bar.inc(s as u64);
+        bar.inc((1024 * 1024) as u64);
     }
 
-    for s in 0..((&size % 1000) as usize) {
-        let vec = vec![0; s];
-        file.write_all(vec.as_slice()).unwrap();
-        bar.inc(s as u64);
-    }
+    let vec = vec![0; (size % (1024 * 1024)) as usize];
+    file.write_all(vec.as_slice()).unwrap();
+    bar.inc((size % (1024 * 1024)) as u64);
 }
