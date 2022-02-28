@@ -1,4 +1,5 @@
 use clap::Parser;
+use indicatif::ProgressBar;
 use std::{env, fs, io::Write};
 
 #[derive(Parser, Debug)]
@@ -35,13 +36,17 @@ fn main() {
         fs::File::open(&path).unwrap()
     };
 
+    let bar = ProgressBar::new(size as u64);
+
     for s in 0..((&size / 1000) as usize) {
         let vec = vec![0; s];
         file.write_all(vec.as_slice()).unwrap();
+        bar.inc(s as u64);
     }
 
     for s in 0..((&size % 1000) as usize) {
         let vec = vec![0; s];
         file.write_all(vec.as_slice()).unwrap();
+        bar.inc(s as u64);
     }
 }
