@@ -1,3 +1,4 @@
+use clap::Parser;
 use std::{env, fs, io::Write};
 
 fn main() {
