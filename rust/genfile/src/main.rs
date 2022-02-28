@@ -17,7 +17,13 @@ struct Args {
 fn main() {
     let args: Args = Args::parse();
     let unit = args.unit;
-    let mut size = args.size.parse::<usize>().unwrap();
+    let mut size = match args.size.parse::<usize>() {
+        Ok(s) => s,
+        Err(_) => {
+            eprintln!("Invalid number of units");
+            return;
+        }
+    };
 
     if unit == "kb" {
         size *= 1024;
