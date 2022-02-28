@@ -31,6 +31,11 @@ fn main() {
         size *= 1024 * 1024;
     } else if unit == "gb" {
         size *= 1024 * 1024 * 1024;
+    } else if unit == "b" {
+        // do nothing
+    } else {
+        eprintln!("Invalid unit");
+        return;
     }
 
     let mut path = env::current_dir().unwrap();
