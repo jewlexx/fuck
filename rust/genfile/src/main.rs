@@ -22,6 +22,8 @@ fn main() {
         size *= 1024;
     } else if unit == "mb" {
         size *= 1024 * 1024;
+    } else if unit == "gb" {
+        size *= 1024 * 1024 * 1024;
     }
 
     let mut path = env::current_dir().unwrap();
