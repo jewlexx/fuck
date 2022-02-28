@@ -9,7 +9,7 @@ struct Args {
     size: String,
 
     /// The unit to write in [b, kb, mb, gb]
-    #[clap(short, long, default_value = "mb")]
+    #[clap(short, long, default_value = "kb")]
     unit: String,
 }
 
