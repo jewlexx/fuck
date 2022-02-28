@@ -1,6 +1,18 @@
 use clap::Parser;
 use std::{env, fs, io::Write};
 
+#[derive(Parser, Debug)]
+#[clap(author, version, about, long_about = None)]
+struct Args {
+    /// Number of units to write
+    #[clap(default_value_t = 1024)]
+    size: usize,
+
+    /// The unit to write in
+    #[clap(short, long, default_value = "mb")]
+    unit: String,
+}
+
 fn main() {
     let size = env::args()
         .nth(1)
