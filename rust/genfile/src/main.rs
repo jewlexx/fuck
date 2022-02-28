@@ -15,8 +15,14 @@ struct Args {
 
 fn main() {
     let args: Args = Args::parse();
+    let unit = args.unit;
+    let mut size = args.size.parse::<usize>().unwrap();
 
-    let size = args.size.parse::<usize>().unwrap();
+    if unit == "kb" {
+        size *= 1024;
+    } else if unit == "mb" {
+        size *= 1024 * 1024;
+    }
 
     let mut path = env::current_dir().unwrap();
     path.push("file");
