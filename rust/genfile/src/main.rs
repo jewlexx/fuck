@@ -5,8 +5,8 @@ use std::{env, fs, io::Write};
 #[clap(author, version, about, long_about = None)]
 struct Args {
     /// Number of units to write
-    #[clap(default_value_t = 1024)]
-    size: usize,
+    #[clap(default_value = "1024")]
+    size: String,
 
     /// The unit to write in
     #[clap(short, long, default_value = "mb")]
@@ -14,11 +14,9 @@ struct Args {
 }
 
 fn main() {
-    let size = env::args()
-        .nth(1)
-        .unwrap_or_else(|| "1024".to_string())
-        .parse::<usize>()
-        .unwrap();
+    let args: Args = Args::parse();
+
+    let size = args.size.parse::<usize>().unwrap();
 
     let mut path = env::current_dir().unwrap();
     path.push("file");
