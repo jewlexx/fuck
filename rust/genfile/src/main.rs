@@ -1,5 +1,5 @@
 use clap::Parser;
-use indicatif::ProgressBar;
+use indicatif::{ProgressBar, ProgressStyle};
 use std::{env, fs, io::Write};
 
 #[derive(Parser, Debug)]
@@ -33,10 +33,18 @@ fn main() {
     let mut file = if !path.exists() {
         fs::File::create(&path).unwrap()
     } else {
-        fs::File::open(&path).unwrap()
+        fs::remove_file(&path).unwrap();
+        fs::File::create(&path).unwrap()
     };
 
     let bar = ProgressBar::new(size as u64);
+    bar.set_style(
+        ProgressStyle::default_bar()
+            .template(
+                "{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/green}] {bytes}/{total_bytes}",
+            )
+            .progress_chars("#>-"),
+    );
 
     for _ in 0..((size / (1024 * 1024)) as usize) {
         let vec = vec![0; 1024 * 1024];
