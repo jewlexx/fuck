@@ -1,5 +1,5 @@
 fn main() {
-    for i in 0..101 {
+    for i in 0..=100 {
         let three = i % 3 == 0;
         let five = i % 5 == 0;
         if three {
